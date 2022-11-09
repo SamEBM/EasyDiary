@@ -1,6 +1,6 @@
 // Los thunks sirven cuando se tiene que ejecutar una función asíncrona
 
-import { signInWithGoogle } from "../../firebase/providers";
+import { loginWithEmailPassword, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
 import { checkCredentials, login, logout } from "./authSlice";
 
 export const checkingAuthentication = (email, password) => {
@@ -9,12 +9,32 @@ export const checkingAuthentication = (email, password) => {
     } 
 }
 
-export const startGoogleSignIn = (email, password) => {
+export const startGoogleSignIn = () => {
     return async(dispatch) => {
         dispatch(checkCredentials());
         const result = await signInWithGoogle();
-        if (!result.ok) return dispatch(logout(result.errorMessage));
+        if (!result.ok) return dispatch(logout(result));
 
-        dispatch(login(result))
+        dispatch(login(result));
+    } 
+}
+
+export const startCreatingUserWithEmailPassword = ({email, password, displayName}) => {
+    return async(dispatch) => {
+        dispatch(checkCredentials());
+        const result = await registerUserWithEmailPassword({email, password, displayName});
+        if (!result.ok) return dispatch(logout(result));
+
+        dispatch(login(result));
+    } 
+}
+
+export const startLoginWithEmailPassword = ({email, password}) => {
+    return async(dispatch) => {
+        dispatch(checkCredentials());
+        const result = await loginWithEmailPassword({email, password});
+        if (!result.ok) return dispatch(logout(result));
+
+        dispatch(login(result));
     } 
 }
