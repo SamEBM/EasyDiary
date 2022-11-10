@@ -4,7 +4,7 @@ import React from 'react'
 
 export const AuthLayout = ({children, title=""}) => {
     return (
-        <Grid container 
+        <Grid container
             spacing={0} 
             direction="column" 
             alignItems="center" 
@@ -16,14 +16,16 @@ export const AuthLayout = ({children, title=""}) => {
                     xs={3}
                     sx={{ backgroundColor: 'white', padding: 3, borderRadius: 2, width: {md: '450px'} }}
                 >
-                    <Typography textAlign='center' variant='h4' sx={{mb: 1}}>
-                        <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
-                        <b> Journal App </b>
-                        <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
-                    </Typography>
-                    <Typography textAlign='center' variant="overline" display="block" gutterBottom>
-                        Keep track of your thoughts
-                    </Typography>
+                    <div className='animate__animated animate__jackInTheBox'>
+                        <Typography textAlign='center' variant='h4' sx={{mb: 1}}>
+                            <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
+                            <b> Journal App </b>
+                            <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
+                        </Typography>
+                        <Typography textAlign='center' variant="overline" display="block" gutterBottom>
+                            Keep track of your thoughts
+                        </Typography>
+                    </div>
 
                     <Typography variant='h5' sx={{mb: 1, mt: 4}}>{title}</Typography>
 

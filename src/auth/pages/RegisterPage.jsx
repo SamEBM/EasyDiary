@@ -38,7 +38,7 @@ export const RegisterPage = () => {
 
     return (
         <AuthLayout title='Create Account'>
-            <form onSubmit={onSubmit}>
+            <form className='animate__animated animate__fadeIn' onSubmit={onSubmit}>
                 <Grid container>
                     <Grid item xs={12} sx={{ mt: 2}}>
                         <TextField name='displayName' 
@@ -75,7 +75,7 @@ export const RegisterPage = () => {
                             helperText={passwordValid}
                         />
                     </Grid>
-                    <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+                    <Grid container direction='row' justifyContent='center' spacing={2} sx={{ mb: 2, mt: 1 }}>
                         <Grid item xs={12} display={!!errorMessage ? '': 'none'}>
                             <Alert severity='error'>
                                 {errorMessage}
