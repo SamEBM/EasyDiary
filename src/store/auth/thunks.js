@@ -1,6 +1,7 @@
 // Los thunks sirven cuando se tiene que ejecutar una función asíncrona
 
 import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, signInWithGoogle } from "../../firebase/providers";
+import { clearNotesLogout } from "../journal/journalSlice";
 import { checkCredentials, login, logout } from "./authSlice";
 
 export const checkingAuthentication = (email, password) => {
@@ -43,6 +44,7 @@ export const startLogout = () => {
     return async(dispatch) => {
 
         await logoutFirebase();
+        dispatch(clearNotesLogout());
         dispatch(logout());
     }
 }

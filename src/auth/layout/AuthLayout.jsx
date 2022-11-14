@@ -1,5 +1,5 @@
 import { MenuBookRounded } from '@mui/icons-material'
-import { Grid, Typography } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
 
 export const AuthLayout = ({children, title=""}) => {
@@ -18,9 +18,18 @@ export const AuthLayout = ({children, title=""}) => {
                 >
                     <div className='animate__animated animate__jackInTheBox'>
                         <Typography textAlign='center' variant='h4' sx={{mb: 1}}>
-                            <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
-                            <b> Journal App </b>
-                            <MenuBookRounded sx={{ fontSize: 40, color: 'primary.main' }}/>
+                            <b> Easy Diary </b>
+                        </Typography>
+                        <Typography textAlign='center'>
+                            <Box alignSelf="center"
+                                component="img"
+                                sx={{
+                                    height: 300,
+                                    width: 300,
+                                }}
+                                alt="Journal"
+                                src="/logo.png"
+                            />
                         </Typography>
                         <Typography textAlign='center' variant="overline" display="block" gutterBottom>
                             Keep track of your thoughts

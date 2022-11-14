@@ -3,11 +3,11 @@ import { Box } from '@mui/system'
 import React from 'react'
 import { NavBar, SideBar } from '../components';
 
-const drawerWidth = 280;
+const drawerWidth = 300;
 
 export const JournalLayout = ({children}) => {
     return (
-        <Box className='animate__animated animate__fadeInUp' sx={{ display: 'flex' }}>
+        <Box  sx={{ display: 'flex', height: '100vh' }} className='animate__animated animate__fadeInUp'>
             <NavBar drawerWidth={drawerWidth}/>
 
             <SideBar drawerWidth={drawerWidth}/>

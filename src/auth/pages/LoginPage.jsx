@@ -9,6 +9,11 @@ import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword 
 
 const emailExp = new RegExp('^[^@]+@[^@]+\.[a-zA-Z]{2,}$');
 
+const initialState = {
+    email: '',
+    password: ''
+};
+
 const formValidations = {
     email: [(value) => emailExp.test(value), 'Enter a valid email address'], 
     password: [(value) => value.length >= 6, 'Password must have at least 6 characters'],
@@ -21,10 +26,7 @@ export const LoginPage = () => {
     const { status, errorMessage } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    const { formState, email, password, isFormValid, emailValid, passwordValid, onInputChange } = useForm({
-        email: '',
-        password: ''
-    }, formValidations);
+    const { formState, email, password, isFormValid, emailValid, passwordValid, onInputChange } = useForm(initialState, formValidations);
 
     const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
