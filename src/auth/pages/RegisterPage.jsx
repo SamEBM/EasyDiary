@@ -8,6 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const emailExp = new RegExp('^[^@]+@[^@]+\.[a-zA-Z]{2,}$');
 
+const formData = {
+    email: '',
+    password: '',
+    displayName: ''
+};
+
 const formValidations = {
     email: [(value) => emailExp.test(value), 'Enter a valid email address'], 
     password: [(value) => value.length >= 6, 'Password must have at least 6 characters'],
@@ -21,11 +27,7 @@ export const RegisterPage = () => {
     const { status, errorMessage } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    const { formState, displayName, email, password, isFormValid, displayNameValid, emailValid, passwordValid, onInputChange } = useForm({
-        displayName: '',
-        email: '',
-        password: ''
-    }, formValidations);
+    const { formState, displayName, email, password, isFormValid, displayNameValid, emailValid, passwordValid, onInputChange } = useForm( formData, formValidations);
 
     const onSubmit = (event) => {
         event.preventDefault();

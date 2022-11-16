@@ -45,7 +45,7 @@ export const NoteView = () => {
     };
 
     return (
-        <Grid container direction="row" justifyContent='space-between' alignItems='center' sx={{ mb: 1 }}>
+        <Grid container className='animate__animated animate__slideInLeft' direction="row" justifyContent='space-between' alignItems='center' sx={{ mb: 1 }}>
             <Grid item>
                 <Typography fontSize={39} fontWeight="light">{dateString}</Typography>
             </Grid>

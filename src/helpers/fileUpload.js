@@ -1,5 +1,6 @@
 export const fileUpload = async(file) => {
-    if (!file) throw new Error('File was not received');
+    // if (!file) throw new Error('File was not received');
+    if (!file) return;
 
     const cloudinaryURL = 'https://api.cloudinary.com/v1_1/drkopig72/upload';
     const formData = new FormData();
@@ -18,7 +19,9 @@ export const fileUpload = async(file) => {
         return cloudResponse.secure_url;
 
     } catch (error) {
-        console.log(error);
-        throw new Error(error.message);
+        // console.log(error);
+        // throw new Error(error.message);
+
+        return null;
     }
 }

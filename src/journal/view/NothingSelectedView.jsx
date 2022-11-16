@@ -9,6 +9,7 @@ export const NothingSelectedView = () => {
             direction="column" 
             alignItems="center" 
             justifyContent="center" 
+            className='animate__animated animate__slideInDown'
             sx={{ minHeight: 'calc(100vh - 110px)', backgroundColor: 'primary.main', borderRadius: 3}}
         >
                 <Grid item xs={12}>
